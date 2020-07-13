@@ -50,7 +50,7 @@ means, stddevs = train_loader.get_statistics(
 
 # model build
 logging.info("build model")
-representation = spk.SchNet(n_interactions=6, )
+representation = spk.SchNet(n_interactions=6, cutoff=cutoff)
 output_modules = [
     spk.atomistic.Atomwise(
         n_in=representation.n_atom_basis,
