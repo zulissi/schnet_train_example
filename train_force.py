@@ -33,10 +33,13 @@ val_dataset = AtomsData("ocp1k_adslab_val_schnet.db",
 
 train_loader = spk.AtomsLoader(train_dataset, 
                                batch_size=32,
-                              num_workers=1)
+                              num_workers=4,
+                              pin_memory=True,
+                              shuffle=True)
 val_loader = spk.AtomsLoader(val_dataset, 
                              batch_size=32,
-                            num_workers=1)
+                            num_workers=4,
+                            pin_memory=True)
 
 # get statistics
 atomrefs = train_dataset.get_atomref(properties)
